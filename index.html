@@ -8,30 +8,6 @@
     
   </head>
   <body>
-    <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
-    <a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://pinterest.com/"></a>
-    <script>
-      const getJsonFromUrl = (url) => {
-      
-        let results = {}
-      
-        const query = url.substring(1);
-        query.split("&").forEach(function (part) {
-          const item = part.split("=");
-          const key = item[0];
-          let value = decodeURIComponent(item[1]);
-    
-          results[key] = value;
-          
-        });
-
-        return results;
-      }
-
-      const link = getJsonFromUrl(window.location.search).link;
-      if (link) {
-        document.querySelector('[data-pin-do="embedBoard"]').setAttribute("href", "https://www.pinterest.com/" + link);
-      }
-    </script>
+    <img src="https://imgur.com/a/JXx2ecK" />
   </body>
 </html>

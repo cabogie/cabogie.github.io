@@ -5,11 +5,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
+    <style>
+      body > span {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+      }
+
+      span[class*="_bd"] {
+        height: 100% !important;
+      }
+
+      * {
+        border: none !important;
+      }
+    </style>
   </head>
   <body>
-    <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
-    <a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://pinterest.com/"></a>
+    <script type="text/javascript" async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+    <a data-pin-do="embedBoard" data-pin-board-width="400"  data-pin-scale-width="100" href="https://pinterest.com/"></a>
     <script>
       const getJsonFromUrl = (url) => {
       
@@ -32,6 +47,16 @@
       if (link) {
         document.querySelector('[data-pin-do="embedBoard"]').setAttribute("href", "https://www.pinterest.com/" + link);
       }
+
+      setTimeout(() => {
+        if(document.querySelector('[data-pin-do="embedBoard"]') != null) {
+          var p = document.createElement("p");
+          p.innerHTML = "Error loading "+ "https://www.pinterest.com/" + link;
+          p.style.width = "100%";
+          p.style.textAlign = "center";
+          document.body.appendChild(p)
+        }
+      }, 5000);
     </script>
   </body>
 </html>

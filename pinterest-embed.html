@@ -10,7 +10,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <style>
+
+    body {
+      margin: 0;
+    }
+
     body>span {
+      display: block !important;
+
       width: 100% !important;
       max-width: 100% !important;
 
@@ -19,7 +26,7 @@
     }
 
     span[class*="_bd"] {
-      height: 100% !important;
+      /* height: 100% !important; */
     }
 
     .errorMessage {
@@ -208,7 +215,7 @@
     let pinsPerRow = 4
     if (args.rowCount) pinsPerRow = parseInt(args.rowCount)
     embedA.setAttribute("data-pin-scale-width", 1000 / pinsPerRow);
-    embedA.setAttribute("data-pin-scale-height", args.height ?? 500);
+    embedA.setAttribute("data-pin-scale-height", (args.height ?? 500) - 110);
 
     if (args.url) {
 

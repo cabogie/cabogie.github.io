@@ -4,213 +4,265 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <style>
-      
-      body > span {
-        width: 100% !important;
-        /* height: 100% !important; */
-        max-width: 100% !important;
-        /* max-height: 100% !important; */
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body>span {
+      width: 100% !important;
+      max-width: 100% !important;
+
+      height: 100% !important;
+      max-height: 100% !important;
+    }
+
+    span[class*="_bd"] {
+      height: 100% !important;
+    }
+
+    .errorMessage {
+      white-space: pre-wrap; /* CSS3 */    
+      white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+      white-space: -pre-wrap; /* Opera 4-6 */    
+      white-space: -o-pre-wrap; /* Opera 7 */    
+      word-wrap: break-word; /* Internet Explorer 5.5+ */
+    }
+
+    * {
+      font-family: "Poppins", serif;
+      font-weight: 400;
+      font-style: normal;
+
+      /* border: none !important; */
+    }
+
+    .lds-spinner,
+    .lds-spinner div,
+    .lds-spinner div:after {
+      box-sizing: border-box;
+    }
+
+    .lds-spinner {
+      color: currentColor;
+      display: block;
+      position: relative;
+      width: 80px;
+      height: 80px;
+      transform: scale(0.5);
+      max-width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      color: red;
+    }
+
+    .lds-spinner div {
+      transform-origin: 40px 40px;
+      animation: lds-spinner 1.2s linear infinite;
+    }
+
+    .lds-spinner div:after {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: 3.2px;
+      left: 36.8px;
+      width: 6.4px;
+      height: 17.6px;
+      border-radius: 20%;
+      background: currentColor;
+    }
+
+    .lds-spinner div:nth-child(1) {
+      transform: rotate(0deg);
+      animation-delay: -1.1s;
+    }
+
+    .lds-spinner div:nth-child(2) {
+      transform: rotate(30deg);
+      animation-delay: -1s;
+    }
+
+    .lds-spinner div:nth-child(3) {
+      transform: rotate(60deg);
+      animation-delay: -0.9s;
+    }
+
+    .lds-spinner div:nth-child(4) {
+      transform: rotate(90deg);
+      animation-delay: -0.8s;
+    }
+
+    .lds-spinner div:nth-child(5) {
+      transform: rotate(120deg);
+      animation-delay: -0.7s;
+    }
+
+    .lds-spinner div:nth-child(6) {
+      transform: rotate(150deg);
+      animation-delay: -0.6s;
+    }
+
+    .lds-spinner div:nth-child(7) {
+      transform: rotate(180deg);
+      animation-delay: -0.5s;
+    }
+
+    .lds-spinner div:nth-child(8) {
+      transform: rotate(210deg);
+      animation-delay: -0.4s;
+    }
+
+    .lds-spinner div:nth-child(9) {
+      transform: rotate(240deg);
+      animation-delay: -0.3s;
+    }
+
+    .lds-spinner div:nth-child(10) {
+      transform: rotate(270deg);
+      animation-delay: -0.2s;
+    }
+
+    .lds-spinner div:nth-child(11) {
+      transform: rotate(300deg);
+      animation-delay: -0.1s;
+    }
+
+    .lds-spinner div:nth-child(12) {
+      transform: rotate(330deg);
+      animation-delay: 0s;
+    }
+
+    @keyframes lds-spinner {
+      0% {
+        opacity: 1;
       }
 
-      span[class*="_bd"] {
-        /* height: 100% !important; */
+      100% {
+        opacity: 0;
       }
+    }
+  </style>
+</head>
 
-      * {
-        font-family: "Poppins", serif;
-        font-weight: 400;
-        font-style: normal;
-        /* border: none !important; */
-      }
+<body>
 
-      .lds-spinner,
-      .lds-spinner div,
-      .lds-spinner div:after {
-        box-sizing: border-box;
-      }
-      .lds-spinner {
-        color: currentColor;
-        display: block;
-        position: relative;
-        width: 80px;
-        height: 80px;
-        transform: scale(0.5);
-        max-width: fit-content;
-        margin-left: auto;
-        margin-right: auto;
-        color: red;
-      }
-      .lds-spinner div {
-        transform-origin: 40px 40px;
-        animation: lds-spinner 1.2s linear infinite;
-      }
-      .lds-spinner div:after {
-        content: " ";
-        display: block;
-        position: absolute;
-        top: 3.2px;
-        left: 36.8px;
-        width: 6.4px;
-        height: 17.6px;
-        border-radius: 20%;
-        background: currentColor;
-      }
-      .lds-spinner div:nth-child(1) {
-        transform: rotate(0deg);
-        animation-delay: -1.1s;
-      }
-      .lds-spinner div:nth-child(2) {
-        transform: rotate(30deg);
-        animation-delay: -1s;
-      }
-      .lds-spinner div:nth-child(3) {
-        transform: rotate(60deg);
-        animation-delay: -0.9s;
-      }
-      .lds-spinner div:nth-child(4) {
-        transform: rotate(90deg);
-        animation-delay: -0.8s;
-      }
-      .lds-spinner div:nth-child(5) {
-        transform: rotate(120deg);
-        animation-delay: -0.7s;
-      }
-      .lds-spinner div:nth-child(6) {
-        transform: rotate(150deg);
-        animation-delay: -0.6s;
-      }
-      .lds-spinner div:nth-child(7) {
-        transform: rotate(180deg);
-        animation-delay: -0.5s;
-      }
-      .lds-spinner div:nth-child(8) {
-        transform: rotate(210deg);
-        animation-delay: -0.4s;
-      }
-      .lds-spinner div:nth-child(9) {
-        transform: rotate(240deg);
-        animation-delay: -0.3s;
-      }
-      .lds-spinner div:nth-child(10) {
-        transform: rotate(270deg);
-        animation-delay: -0.2s;
-      }
-      .lds-spinner div:nth-child(11) {
-        transform: rotate(300deg);
-        animation-delay: -0.1s;
-      }
-      .lds-spinner div:nth-child(12) {
-        transform: rotate(330deg);
-        animation-delay: 0s;
-      }
-      @keyframes lds-spinner {
-        0% {
-          opacity: 1;
-        }
-        100% {
-          opacity: 0;
-        }
-      }
+  <a data-pin-do="embedPinterest" data-pin-board-width="1000" data-pin-scale-height="500" data-pin-scale-width="250"
+    href="https://pinterest.com/">
+    <div class="lds-spinner">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </a>
 
+  <script>
 
-    </style>
-  </head>
-  <body>
+    const getJsonFromUrl = (url) => {
 
-    <a data-pin-do="embedPinterest" data-pin-board-width="1000" data-pin-scale-height="500"  data-pin-scale-width="250" href="https://pinterest.com/">
-      <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-    </a>
+      let results = {}
 
-    <script>
+      const query = url.substring(1);
+      query.split("&").forEach(function (part) {
+        const item = part.split("=");
+        const key = item[0];
+        let value = decodeURIComponent(item[1]);
 
-      const getJsonFromUrl = (url) => {
-      
-        let results = {}
-      
-        const query = url.substring(1);
-        query.split("&").forEach(function (part) {
-          const item = part.split("=");
-          const key = item[0];
-          let value = decodeURIComponent(item[1]);
-    
-          results[key] = value;
-          
-        });
+        results[key] = value;
 
-        return results;
-      }
+      });
 
-      var embedA = document.querySelector('[data-pin-do="embedPinterest"]');
+      return results;
+    }
 
+    var embedA = document.querySelector('[data-pin-do="embedPinterest"]');
 
-      const args = getJsonFromUrl(window.location.search);
+    const args = getJsonFromUrl(window.location.search);
 
-      let pinsPerRow = 4
-      if(args.rowCount) pinsPerRow = parseInt(args.rowCount)
-      embedA.setAttribute("data-pin-scale-width", 1000 / pinsPerRow);
+    let pinsPerRow = 4
+    if (args.rowCount) pinsPerRow = parseInt(args.rowCount)
+    embedA.setAttribute("data-pin-scale-width", 1000 / pinsPerRow);
+    embedA.setAttribute("data-pin-scale-height", args.height ?? 500);
 
-      if(args.url) {
-        var urlData = args.url.split("pinterest.com/")[1]
-        if(urlData.endsWith("/")) urlData = urlData.slice(0, -1)
+    if (args.url) {
+
+      var urlData = args.url.split("pinterest.com/")[1]
+      if (urlData) {
+
+        if (urlData.endsWith("/")) urlData = urlData.slice(0, -1)
 
         let isPin = urlData.startsWith("pin/")
         let isBoard = !isPin && urlData.includes("/")
 
-        if(isPin) {
+        if (isPin) {
           args.pin = urlData.substring(4)
-        } else if(isBoard) {
+        } else if (isBoard) {
           args.board = urlData
         } else {
           args.user = urlData
         }
       }
 
-      let dataPinDo, embedUrl, type;
-      if (args.board) {
-        args.board = args.board.charAt(0) === '/' ? args.board.substring(1) : args.board;
-        type = "board";
-        dataPinDo = "embedBoard";
-        embedUrl = "https://www.pinterest.com/" + args.board;
-      } else if(args.pin) {
-        type = "pin";
-        dataPinDo = "embedPin";
-        embedUrl = "https://www.pinterest.com/pin/" + args.pin;
-      }else if(args.user) {
-        type = "user";
-        dataPinDo = "embedUser";
-        embedUrl = "https://www.pinterest.com/" + args.user;
-      }
+    }
 
-      embedA.setAttribute("href", embedUrl);
-      embedA.setAttribute("data-pin-do", dataPinDo);
+    let dataPinDo, embedUrl, pinterestType;
+    if (args.board) {
+      args.board = args.board.charAt(0) === '/' ? args.board.substring(1) : args.board;
+      pinterestType = "board";
+      dataPinDo = "embedBoard";
+      embedUrl = "https://www.pinterest.com/" + args.board;
+    } else if (args.pin) {
+      pinterestType = "pin";
+      dataPinDo = "embedPin";
+      embedUrl = "https://www.pinterest.com/pin/" + args.pin;
+    } else if (args.user) {
+      pinterestType = "user";
+      dataPinDo = "embedUser";
+      embedUrl = "https://www.pinterest.com/" + args.user;
+    }
 
-      function appendError (errorMessage) {
-        var p = document.createElement("p");
-        p.innerHTML = errorMessage;
-        p.style.width = "100%";
-        p.style.textAlign = "center";
-        document.body.appendChild(p);
-        document.querySelector('[data-pin-do]').remove();
-      }
+    embedA.setAttribute("href", embedUrl);
+    embedA.setAttribute("data-pin-do", dataPinDo);
 
-      if(type) {
-        setTimeout(() => {
-          if(document.querySelector('[data-pin-do]') != null) {
-            appendError("Error loading " + type + " <a href='" + embedA + "'>" + embedA + "</a>");
-          }
-        }, 5000);
-      } else {
-        appendError("No pin or board specified, use ?pin=pin_id or ?board=user/board ...");
-      }
+    function appendError(errorMessage) {
+      var p = document.createElement("p");
+      p.innerHTML = errorMessage;
+      p.style.width = "100%";
+      p.style.textAlign = "center";
+      p.className = "errorMessage"
+      document.body.appendChild(p);
+      document.querySelector('[data-pin-do]')?.remove();
+    }
 
-    </script>
-    
-    <script type="text/javascript" async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+    if (pinterestType) {
+      setTimeout(() => {
+        if (document.querySelector('[data-pin-do]') != null) {
+          appendError("Error loading " + pinterestType + " <a href='" + embedA + "'>" + embedA + "</a>");
+        }
+      }, 5000);
+    } else if (args.url) {
+      appendError("Invalid url " + " <a href='" + args.url + "'>" + args.url + "</a>" + ", please use a pinterest.com/... url");
+    } else {
+      appendError("No pin or board specified. Use one of the following:");
+      appendError("?url=pinterest.com/...");
+      appendError("?pin=pin_id");
+      appendError("?board=user/board");
+    }
 
-  </body>
+  </script>
+
+  <script type="text/javascript" async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+
+</body>
+
 </html>

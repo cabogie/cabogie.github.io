@@ -115,8 +115,7 @@
   </head>
   <body>
 
-    <script type="text/javascript" async defer src="https://assets.pinterest.com/js/pinit.js"></script>
-    <a data-pin-do="embedPinterest" data-pin-board-width="400"  data-pin-scale-width="100" href="https://pinterest.com/">
+    <a data-pin-do="embedPinterest" data-pin-board-width="1000" data-pin-scale-height="500"  data-pin-scale-width="250" href="https://pinterest.com/">
       <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
     </a>
 
@@ -139,7 +138,30 @@
         return results;
       }
 
+      var embedA = document.querySelector('[data-pin-do="embedPinterest"]');
+
+
       const args = getJsonFromUrl(window.location.search);
+
+      let pinsPerRow = 4
+      if(args.rowCount) pinsPerRow = parseInt(args.rowCount)
+      embedA.setAttribute("data-pin-scale-width", 1000 / pinsPerRow);
+
+      if(args.url) {
+        var urlData = args.url.split("pinterest.com/")[1]
+        if(urlData.endsWith("/")) urlData = urlData.slice(0, -1)
+
+        let isPin = urlData.startsWith("pin/")
+        let isBoard = !isPin && urlData.includes("/")
+
+        if(isPin) {
+          args.pin = urlData.substring(4)
+        } else if(isBoard) {
+          args.board = urlData
+        } else {
+          args.user = urlData
+        }
+      }
 
       let dataPinDo, embedUrl, type;
       if (args.board) {
@@ -151,9 +173,12 @@
         type = "pin";
         dataPinDo = "embedPin";
         embedUrl = "https://www.pinterest.com/pin/" + args.pin;
+      }else if(args.user) {
+        type = "user";
+        dataPinDo = "embedUser";
+        embedUrl = "https://www.pinterest.com/" + args.user;
       }
 
-      var embedA = document.querySelector('[data-pin-do="embedPinterest"]')
       embedA.setAttribute("href", embedUrl);
       embedA.setAttribute("data-pin-do", dataPinDo);
 
@@ -178,5 +203,7 @@
 
     </script>
     
+    <script type="text/javascript" async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+
   </body>
 </html>
